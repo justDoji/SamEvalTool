@@ -1,6 +1,5 @@
 package be.doji.tools.model;
 
-import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.List;
 
@@ -8,7 +7,6 @@ public class TraitEvaluation {
 
   private Trait trait;
   private Appreciation level;
-  private LocalDateTime evaluationDate;
 
   public TraitEvaluation(Trait trait) {
     this.trait = trait;
@@ -31,14 +29,6 @@ public class TraitEvaluation {
     this.level = level;
   }
 
-  public LocalDateTime getEvaluationDate() {
-    return evaluationDate;
-  }
-
-  public void setEvaluationDate(LocalDateTime evaluationDate) {
-    this.evaluationDate = evaluationDate;
-  }
-
   public double getWeighedScore() {
     List<CompetenceLevel> competenceLevels = trait.getCompetenceLevels();
     competenceLevels.sort(new Comparator<CompetenceLevel>() {
@@ -50,5 +40,5 @@ public class TraitEvaluation {
     int maxScore = competenceLevels.get(competenceLevels.size() - 1).getAppreciation().getScore();
     return this.getLevel().getScore() / maxScore;
   }
-  
+
 }

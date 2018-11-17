@@ -12,15 +12,26 @@ public final class MockPopulator {
   private MockPopulator() {
   }
 
-  public static List<Category> mockData() {
+  public static List<Category> mockCategoryData() {
 
     List<Category> categories = new ArrayList<>();
-
     categories.add(mockZelfstandigheid());
     categories.add(mockInzet());
 
     return categories;
   }
+
+  public static Evaluation mockEvaluation() {
+    return new Evaluation("Jos De Houwer", mockEvaluationTemplate());
+  }
+
+  private static EvaluationTemplate mockEvaluationTemplate() {
+    EvaluationTemplate template = new EvaluationTemplate();
+    template.addTraitsToEvaluate(mockZelfstandigheid().getTraits());
+    template.addTraitsToEvaluate(mockInzet().getTraits());
+    return template;
+  }
+
 
   private static Category mockZelfstandigheid() {
     Category zelfstandigheid = new Category("Zelfstandig Werken");

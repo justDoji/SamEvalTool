@@ -19,7 +19,7 @@ public class HomePage extends BasePage {
     super();
 
     replace(new Label(CONTENT_ID, "TEST 123!"));
-    List<Category> categories = MockPopulator.mockData();
+    List<Category> categories = MockPopulator.mockCategoryData();
 
     RepeatingView repeatingView = new RepeatingView("categoryRepeater");
     for (Category cat : categories) {
