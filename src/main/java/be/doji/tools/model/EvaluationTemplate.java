@@ -1,12 +1,14 @@
 package be.doji.tools.model;
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
-public class EvaluationTemplate {
+public class EvaluationTemplate implements Serializable {
 
-  List<Trait> traitsToEvaluate;
+  List<Trait> traitsToEvaluate = new ArrayList<>();
   String title;
   LocalDateTime creationDate;
   String description;

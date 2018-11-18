@@ -20,9 +20,10 @@ public abstract class BasePage extends WebPage {
   }
 
   private NavBarPanel newNavBar() {
-    // ADD PAGES TO MENU HERE
-    return new NavBarPanel.Builder("navBar", HomePage.class, "SamEval", getActiveMenuItem())
 
+    return new NavBarPanel.Builder("navBar", HomePage.class, "SamEval", getActiveMenuItem())
+        .addMenuItem("Evaluation", EvaluationPage.class)
+        // ADD PAGES TO MENU HERE
         .build();
   }
 

@@ -14,6 +14,7 @@ public final class WebConstants {
       APPLICATION_NAME + " - " + APPLICATION_VERSION;
 
   public static final String PAGE_NAME_HOME = "homePageLink";
+  public static final String PAGE_NAME_EVALUATION = "evalPageLink";
 
 
 }

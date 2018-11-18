@@ -1,6 +1,8 @@
 package be.doji.tools.model;
 
-public class CompetenceLevel {
+import java.io.Serializable;
+
+public class CompetenceLevel implements Serializable {
 
   private String name;
   private Appreciation appreciation;

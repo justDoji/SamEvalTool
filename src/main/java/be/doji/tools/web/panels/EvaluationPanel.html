@@ -9,9 +9,25 @@
     <br/>
     <h3>Avg score: <span wicket:id="score"/>/4</h3>
     <br/>
-    <div wicket:id="evalRepeater">
-      <div wicket:id="evaluationItem"/>
-    </div>
+    <form wicket:id="form">
+      <div wicket:id="evalRepeater">
+        <div class="trait" style="display:table">
+          <h3 wicket:id="traitName">Title</h3>
+          <span wicket:id="traitDescription">description</span>
+          <br/> <br/>
+          <b>Choose competence level:</b> <br/>
+
+
+          <span wicket:id="radioGroup"></span>
+
+
+        </div>
+        <br/>
+        <hr/>
+      </div>
+      <input type="submit" value="Save"/>
+      <input type="reset" value="Clear"/>
+    </form>
     <br/>
     <hr/>
   </div>
