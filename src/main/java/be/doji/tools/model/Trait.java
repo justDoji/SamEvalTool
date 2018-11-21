@@ -2,18 +2,29 @@ package be.doji.tools.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Class depicting personality trait
  */
 public class Trait implements Serializable {
 
+  @Id
+  @GeneratedValue
+  private Long id;
+
+  @Column(name = "NAME", nullable = false)
   private String name;
+
+  @Column(name = "DESCRIPTION")
   private String description;
-  private Map<Appreciation, CompetenceLevel> levels = new HashMap<>();
+
+  @OneToMany(mappedBy = "trait", targetEntity = CompetenceLevel.class)
+  private List<CompetenceLevel> levels = new ArrayList<>();
 
   public Trait(String name) {
     this.name = name;
@@ -41,16 +52,17 @@ public class Trait implements Serializable {
       throw new IllegalArgumentException(
           "The provided competence, or it's attributed level were NULL");
     }
-
-    if (levels.containsKey(element.getAppreciation())) {
+    
+    if (levels.stream().anyMatch(level -> level.getAppreciation() == element.getAppreciation())) {
       throw new IllegalArgumentException(
           "This trait already contains a competence element with the same attributed competence level");
     }
 
-    levels.put(element.getAppreciation(), element);
+    levels.add(element);
   }
 
+
   public List<CompetenceLevel> getCompetenceLevels() {
-    return new ArrayList<>(levels.values());
+    return new ArrayList<>(levels);
   }
 }

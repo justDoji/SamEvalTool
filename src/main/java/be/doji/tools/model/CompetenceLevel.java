@@ -7,6 +7,7 @@ public class CompetenceLevel implements Serializable {
   private String name;
   private Appreciation appreciation;
   private String description;
+  private Trait trait;
 
 
   public CompetenceLevel(String name, Appreciation appreciation) {

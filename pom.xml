@@ -56,6 +56,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!-- allowed values: R7, 1.0, 1.5, 2.0 or none -->
     <wtp.version>none</wtp.version>
+    <hibernate.version>5.1.0.Final</hibernate.version>
   </properties>
 
 
@@ -113,6 +114,22 @@
       <scope>provided</scope>
     </dependency>
 
+    <!-- Spring Data JPA and database dependencies -->
+
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-data-jpa</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.16.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.github.gwenn</groupId>
+      <artifactId>sqlite-dialect</artifactId>
+      <version>0.1.0</version>
+    </dependency>
     <!--  JETTY DEPENDENCIES FOR TESTING  -->
     <dependency>
       <groupId>org.eclipse.jetty</groupId>
@@ -133,7 +150,6 @@
       <artifactId>guava</artifactId>
       <version>11.0.2</version>
     </dependency>
-
 
 
     <!-- uncomment if WebSocket support is needed
@@ -232,5 +248,10 @@
         <enabled>true</enabled>
       </snapshots>
     </repository>
+    <repository>
+      <id>jitpack.io</id>
+      <url>https://jitpack.io</url>
+    </repository>
+
   </repositories>
 </project>
