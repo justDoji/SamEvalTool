@@ -23,13 +23,13 @@ public class TraitPanel extends Panel {
 
     RepeatingView repeatingView = new RepeatingView("traitRepeater");
     List<CompetenceLevel> competenceLevels = trait.getObject().getCompetenceLevels();
-    competenceLevels.sort(Comparator.comparing(CompetenceLevel::getAppreciation));
+    competenceLevels.sort(Comparator.comparing(CompetenceLevel::getAppreciationLevel));
     for (CompetenceLevel trait : competenceLevels) {
       WebMarkupContainer container = new WebMarkupContainer(repeatingView.newChildId());
       repeatingView.add(container);
       container
           .add(new Label("traitItem",
-              trait.getAppreciation().toString() + ": " + trait.getDescription()));
+              trait.getAppreciationLevel().getDisplayValue() + ": " + trait.getDescription()));
     }
     add(repeatingView);
 

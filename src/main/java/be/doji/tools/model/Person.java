@@ -2,6 +2,7 @@ package be.doji.tools.model;
 
 public class Person {
 
+  private Long id;
   private String name;
   private String title;
 

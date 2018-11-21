@@ -91,7 +91,7 @@ public final class MockPopulator {
     trait.setDescription(traitName + " tralalalala.");
     List<String> descriptions = Arrays.asList(levelDescriptions);
     for (int i = 0; i < descriptions.size() && i < 4; i++) {
-      trait.addCompetenceLevel(traitName + "-level" + i, Appreciation.values()[i],
+      trait.addCompetenceLevel(traitName + "-level" + i, AppreciationLevel.values()[i],
           descriptions.get(i));
     }
 

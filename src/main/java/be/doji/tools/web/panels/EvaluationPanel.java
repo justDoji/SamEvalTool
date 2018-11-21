@@ -39,10 +39,11 @@ public class EvaluationPanel extends Panel {
       container.add(new Label("traitDescription", traitEvaluation.getTrait().getDescription()));
       List<String> selectionOptions = new ArrayList<>();
       List<CompetenceLevel> competenceLevels = traitEvaluation.getTrait().getCompetenceLevels();
-      competenceLevels.sort(Comparator.comparingInt(o -> o.getAppreciation().getScore()));
+      competenceLevels.sort(Comparator.comparingInt(o -> o.getAppreciationLevel().getScore()));
       for (CompetenceLevel level : competenceLevels) {
         selectionOptions.add(
-            level.getAppreciation().toString() + "(" + level.getAppreciation().getScore() + ") "
+            "(" + level.getAppreciationLevel().getScore() + ") " + level.getAppreciationLevel()
+                .getDisplayValue()
                 + " : " + level.getDescription());
       }
       container.add(new RadioChoice("radioGroup", Model.of(""), selectionOptions));
